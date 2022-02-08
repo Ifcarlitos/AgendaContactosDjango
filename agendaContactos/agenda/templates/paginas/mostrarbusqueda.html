@@ -1,0 +1,36 @@
+{% extends "paginas/base.html" %}
+
+{% block content %}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellidos</th>
+        <th scope="col">telefono</th>
+        <th scope="col">email</th>
+        <th scope="col">comentario</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for contacto in contactos %}
+      <tr>
+        <th>{{contacto.id}}</th>
+        <td>{{contacto.nombre}}</td>
+        <td>{{contacto.apellidos}}</td>
+        <td>{{contacto.telefono}}</td>
+        <td>{{contacto.email}}</td>
+        <td>{{contacto.comentario}}</td>
+        <td>
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <a type="button" class="btn btn-primary" href="{% url 'editar' contacto.id %}">Editar</a>
+                <a type="button" class="btn btn-primary" href="{% url 'eliminar' contacto.id %}">Eliminar</a>
+              </div>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}

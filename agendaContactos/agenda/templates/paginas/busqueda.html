@@ -1,0 +1,24 @@
+{% extends "paginas/base.html" %}
+
+{% block content %}
+<form  method="get" action="/buscar/">
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary active">
+          <input type="radio" name="options" id="option1" value="on" checked> Nombre
+        </label>
+        <label class="btn btn-secondary">
+          <input type="radio" name="options" id="option2" value="off"> Telefono
+        </label>
+    </div>
+  <div  class="container">
+        <div class="col-md-6">
+          <label class="control-label" for="id">Texto:</label>
+          <input name="textbusqueda" id="textbusqueda" class="form-control" placeholder="nombre" type="text">
+        </div>
+  </div>
+  <div class="container">
+    <button  type="submit" class="btn btn-primary btn-lg btn-block info">Enviar</button>
+  </div>
+</form>
+
+{% endblock %}

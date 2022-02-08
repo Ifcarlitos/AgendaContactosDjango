@@ -1,0 +1,19 @@
+{% extends "paginas/base.html" %}
+
+{% block content %}
+<form  method="POST" name="form-work" enctype="multipart/form-data">
+  {% csrf_token %}
+  {% for campo in formulario %}
+  <div  class="container">
+        <div class="col-md-6">
+          <label class="control-label" for="id">{{campo.label}}</label>
+          <input name="{{campo.name}}" class="form-control" placeholder="{{campo.label}}" type="{{ campo.field.widget.input_type }}">
+        </div>
+  </div>
+  {% endfor %}
+  <div class="container">
+    <button  type="submit" class="btn btn-primary btn-lg btn-block info">Enviar</button>
+  </div>
+</form>
+
+{% endblock %}
